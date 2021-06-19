@@ -1,35 +1,43 @@
 # Javascript-Problems-Solving-Practice
-- This repo is for JavaScript Problem solving Practice
-- This repo contains different Tasks of basic JavaScript
--
-# Group Members are:
+- This repo is for JavaScript Problem solving Practice activity.
+- This activity is based on making different live projects given by instructor to different teams.
+- Our team task for Day-1 is Grocery List App.
+
+# Group Members:
 - Rafat Fatima
 - Naima Shaikh
 - Humza
 - Abida Nizam
 
-# Group leader:
+# Group Leader:
 - Rafat
 
+## What does this app do?
+- This app has functionality to Add, Edit, Clear and Mark through items in your grocery list.
+
 ## UI work:
-- Rafat is working on UI
+- Assigned to Rafat Fatima 
 
 ## JavaScript work:
-- Naima Shaikh and Humza are working on JavaScript
+- Assigned to Naima and Hamza.
 
-# my-task is:
-- my task in this group is to write README work.
+# Documentation (ReadMe.md):
+- Assigned to Abida.
 
 ## Technologies used:
 - HTML, CSS, JavaScript (for coding and implementation  on UI)
 
 ## Software needed to run for this app
 - VS Code (as Editor)
+- Browser (as runtime environment)
 
 ## How to run code in this repo?
-- This repo contains different Task folders
-- Further each folder  contains sub-folders
-- Sub-folders contain different problems with solution
+- To run this app, click live github website link given below.
+OR
+- open index.html in your browser.
 
-## Repo Links:
-https://github.com/abida128/Javascript-Problems-Solving-Practice/new/main
+## Repo Link:
+https://github.com/rafatfatima-qa/Grocery-List-App
+
+## Live Link:
+https://rafatfatima-qa.github.io/Grocery-List-App/

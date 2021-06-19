@@ -1,48 +1,84 @@
-//main variables
-var l = document.getElementById("list");
+let taskInput = document.getElementById("new-task");
+let addButton = document.getElementById("addButton");
+let incompleteTasks = document.getElementById("incomplete-tasks");
+let completedTasks = document.getElementById("completed-tasks");
+let clearButton = document.getElementById("clear");
+let createNewTask = function(taskName) {
+    let listItem = document.createElement("li");
+    let checkBox = document.createElement("input");
+    let label = document.createElement("label");
+    let editInput = document.createElement("input");
+    let editButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
 
+    checkBox.type = "checkBox";
+    editInput.type = "text";
+    editButton.innerText = "Edit";
+    editButton.className = "edit";
+    deleteButton.innerText = "Delete";
+    deleteButton.className = "delete";
+    label.innerText = taskName;
+    listItem.appendChild(checkBox);
+    listItem.appendChild(label);
+    listItem.appendChild(editInput);
+    listItem.appendChild(editButton);
+    listItem.appendChild(deleteButton);
 
-function addMe() {
-
-  var input = document.getElementById("input");
-  var list = document.createElement('li');
-  var listText = document.createTextNode(input.value);
-  list.appendChild(listText);
-  l.appendChild(list);
-
-  //DELETE BUTTON
-  var dbutton = document.createElement("button");
-  dbutton.className += "button";
-  dbutton.style.display = "inline-block";
-  // dbutton.style.marginTop = "100px";
-  
-  
-
-  var dbuttonvalue = document.createTextNode("Delete");
-  dbutton.appendChild(dbuttonvalue);
-  l.appendChild(dbutton);
-  dbutton.setAttribute("onclick", "del(this)")
-
-
-  //EDITBUTTON
-  var edit = document.createElement("button");
-  var editText = document.createTextNode("Edit");
-  edit.className += "button";
-  edit.appendChild(editText);
-  edit.setAttribute("onclick", "edit(this)");
-  list.appendChild(edit);
-
+    return listItem;
+}
+let addTask = function() {
+    if (taskInput.value == "") {
+        alert("Task to be added should not be empty!");
+        return;
+    }
+    let listItem = createNewTask(taskInput.value);
+    incompleteTasks.appendChild(listItem);
+    bindTaskEvents(listItem, taskCompleted);
+    taskInput.value = "";
 }
 
-function del(e) {
-  e.previousSibling.remove();
-  e.remove();
+let editTask = function() {
+
+    let listItem = this.parentNode;
+    let editInput = listItem.querySelector("input[type=text]");
+    let label = listItem.querySelector("label");
+    let containsClass = listItem.classList.contains("editMode");
+    if (containsClass) {
+        label.innerText = editInput.value;
+    } else {
+        editInput.value = label.innerText;
+    }
+    listItem.classList.toggle("editMode");
+}
+let deleteTask = function() {
+    let listItem = this.parentNode;
+    let ul = listItem.parentNode;
+    ul.removeChild(listItem);
+}
+let taskCompleted = function() {
+    let listItem = this.parentNode;
+    completedTasks.appendChild(listItem);
+    bindTaskEvents(listItem, taskIncomplete);
 }
 
-function edit(value) {
 
-  var newValue = prompt("Enter New Value");
-  value.parentNode.nodeValue = newValue;
-  value.parentNode.firstChild.nodeValue = newValue;
-
+let taskIncomplete = function() {
+    let listItem = this.parentNode;
+    incompleteTasks.appendChild(listItem);
+    bindTaskEvents(listItem, taskCompleted);
 }
+addButton.addEventListener("click", addTask);
+let bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
+    let checkBox = taskListItem.querySelector('input[type="checkbox"]');
+    let editButton = taskListItem.querySelector("button.edit");
+    let deleteButton = taskListItem.querySelector("button.delete");
+    editButton.onclick = editTask;
+    deleteButton.onclick = deleteTask;
+    checkBox.onchange = checkBoxEventHandler;
+}
+
+let clear = function() {
+    incompleteTasks.innerHTML = "";
+    completedTasks.innerHTML = "";
+}
+clearButton.addEventListener('click', clear);
