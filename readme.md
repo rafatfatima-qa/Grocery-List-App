@@ -1,6 +1,6 @@
 # Javascript-Problems-Solving-Practice
 - This repo is for JavaScript Problem solving Practice activity.
-- This activity is based on making different live projects given by instructor to different teams.
+- This activity is based on making different live projects given by the instructor to different teams.
 - Our team task for Day-1 is Grocery List App.
 
 # Group Members:
