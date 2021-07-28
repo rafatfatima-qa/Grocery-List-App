@@ -1,3 +1,5 @@
+## Grocery List App
+
 # Javascript-Problems-Solving-Practice
 - This repo is for JavaScript Problem solving Practice activity.
 - This activity is based on making different live projects given by the instructor to different teams.
@@ -11,7 +13,6 @@
 
 # Group Leader:
 - Rafat
-## Grocery List App
 
 ## What does this app do?
 - This app has functionality to Add, Edit, Clear and Mark through items in your grocery list.
