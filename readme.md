@@ -11,6 +11,7 @@
 
 # Group Leader:
 - Rafat
+## Grocery List App
 
 ## What does this app do?
 - This app has functionality to Add, Edit, Clear and Mark through items in your grocery list.
